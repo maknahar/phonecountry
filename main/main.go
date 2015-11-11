@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"phonecountry"
+
+	"github.com/maknahar/phonecountry"
 )
 
 func main() {
