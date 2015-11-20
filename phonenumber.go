@@ -29,6 +29,8 @@ func init() {
 	}
 }
 
+//GetCountryNameFromPhone returns country common name for given phone number
+//Example +919445454528 - India
 func GetCountryNameFromPhone(phoneNumber string) (countryName string, err error) {
 	//strip + from starting
 	phoneNumber = strings.TrimSpace(phoneNumber)
@@ -103,6 +105,8 @@ func GetCountryNameFromPhone(phoneNumber string) (countryName string, err error)
 	return "", fmt.Errorf("No country code found for %s", phoneNumber)
 }
 
+//GetCountryISO2Code returns country iso2 code of given number
+//For Example +919445454528 => IN
 func GetCountryISO2Code(phoneNumber string) (countryCode string, err error) {
 	countryName, err := GetCountryNameFromPhone(phoneNumber)
 	if err != nil {
