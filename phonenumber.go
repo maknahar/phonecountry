@@ -11,7 +11,6 @@ import (
 )
 
 var phoneMap map[string]string
-var reversePhoneMap map[string]string
 
 func init() {
 
@@ -22,15 +21,10 @@ func init() {
 	if err != nil {
 		println(err)
 	}
-
-	reversePhoneMap = make(map[string]string)
-	for k, v := range phoneMap {
-		reversePhoneMap[strings.ToUpper(v)] = k
-	}
 }
 
 //GetCountryNameFromPhone returns country common name for given phone number
-//Example +919445454528 - India
+//Example +919445454528 => India
 func GetCountryNameFromPhone(phoneNumber string) (countryName string, err error) {
 	//strip + from starting
 	phoneNumber = strings.TrimSpace(phoneNumber)
@@ -73,7 +67,6 @@ func GetCountryNameFromPhone(phoneNumber string) (countryName string, err error)
 			return phoneMap["447829"], nil
 		}
 	case "6":
-		fmt.Println("here")
 		if phoneNumber[0:4] == "6721" {
 			return phoneMap["6721"], nil
 		}
