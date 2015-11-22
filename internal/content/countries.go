@@ -138,11 +138,13 @@ func handle(err error) {
 }
 
 var CountryInfo map[string]Countries
-var PhoneInfo map[string]Countries
 
 func init() {
 	var countryData []Countries
-	_, filename, _, _ := runtime.Caller(1)
+	_, filename, _, ok := runtime.Caller(1)
+	if !ok {
+		panic("Not able to recover the location of countries.json file")
+	}
 	f, err := ioutil.ReadFile(path.Join(path.Dir(filename), "countries.json"))
 	handle(err)
 	err = json.Unmarshal(f, &countryData)
@@ -151,13 +153,4 @@ func init() {
 	for _, v := range countryData {
 		CountryInfo[v.Name.Common] = v
 	}
-
-	PhoneInfo = make(map[string]Countries)
-	for _, v1 := range countryData {
-		for _, v2 := range v1.Callingcode {
-			PhoneInfo[v2] = v1
-			//fmt.Printf("\"%s\":\"%s\",\n", v2, PhoneInfo[v2].Name.Common)
-		}
-	}
-
 }
