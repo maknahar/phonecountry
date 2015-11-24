@@ -15,3 +15,7 @@ __Phonecountry has the ability to distingues the phone number between__
 Example +919445454528 => India
 
 2. __GetCountryISO2Code__ - GetCountryISO2Code returns country iso2 code of given number. Example +919445454528 => IN
+
+## Limitations
+
+1. Input phone number need to be atleast 7 digit long.(Excluding + sign)
