@@ -1,7 +1,7 @@
 # phonecountry
-phonecountry extract information about country from a phone number abd vice versa.
+phonecountry extract information about country from a phone number and vice versa.
 
-__Phonecountry has the ability to distingues the phone number between__ 
+__Phonecountry has the ability to distinguish the phone number between__ 
 
 * USA, Canada and all caribian coutry. (All starting with +1)
 * Russia and Kazakistan (Starting with +7)
